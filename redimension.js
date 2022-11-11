@@ -34,7 +34,7 @@ export async function resize(ruta) {
     await sharp(`${ruta}`)
     .metadata()
     .then(({ width, format }) =>
-      sharp(`${ruta}`)
+      sharp(`${ruta}`)      
         .resize(Math.round(width * percentage))
         .toFile(`${folder}/${filename}-${percentagePrefix}.${format}`)
     );
