@@ -4,8 +4,8 @@ const sharp = require("sharp");
     .resize(50)
     .toFile("./Imagenes/Avedsp") */
 
-const images = ["destiny.jpg", "kun.jpg", "messi.jpg", "yuumi.jpg"];
-const percentages = [15, 35, 50];
+const images = ["destiny.jpg", "kun.jpg", "messi.jpg", "yuumi.jpg","a.png"];
+const percentages = [15, 35, 50, 75];
 
 for (let img of images) {
   for(let percentage of percentages){
