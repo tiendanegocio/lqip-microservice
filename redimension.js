@@ -1,36 +1,45 @@
-const sharp = require("sharp");
+import sharp from "sharp";
 
-/* sharp("./Imagenes/destiny_900")
-    .resize(50)
-    .toFile("./Imagenes/Avedsp") */
-
+/*
 const images = ["destiny.jpg", "kun.jpg", "messi.jpg", "yuumi.jpg","a.png"];
-const percentages = [15, 35, 50, 75];
 
 for (let img of images) {
   for(let percentage of percentages){
     resize(`./Imagenes/${img}`, percentage); 
   }
 }
+*/
 
-function resize(ruta, tamaño) {
+const percentages = [0.15, 0.35, 0.50, 0.75];
+
+export async function resize(ruta) {
   
-  const resizes = tamaño / 100;
-
   let arrRuta = ruta.split("/");
-  console.log(arrRuta);
   let file = arrRuta.pop();
-  let folder = arrRuta.join("/");
+  let folder = "./Imagenes";
   let arrFile = file.split('.');
   let filename = arrFile[0];
-  let extend = arrFile[1];
+  
+  await sharp(`${ruta}`)
+    .metadata()
+    .then(({ format }) =>
+      sharp(`${ruta}`)
+      .toFile(`${folder}/${filename}.${format}`)
+    );
 
-  sharp(`${ruta}`)
-  .metadata()
-  .then(({ width }) =>
-    sharp(`${ruta}`)
-      .resize(Math.round(width * resizes))
-      .toFile(`${folder}/${filename}-${tamaño}.${extend}`)
-  );
+  for(let percentage of percentages){
+
+    const percentagePrefix = percentage * 100;
+
+    await sharp(`${ruta}`)
+    .metadata()
+    .then(({ width, format }) =>
+      sharp(`${ruta}`)
+        .resize(Math.round(width * percentage))
+        .toFile(`${folder}/${filename}-${percentagePrefix}.${format}`)
+    );
+    
+  }
+  
 
 }
