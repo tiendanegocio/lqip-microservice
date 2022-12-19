@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<div class="class">
+
+    
+    <div>
+        <p>foto 120</p>
+        <p>29.9KB</p>
+        <img class="blur" data-src="./tmp-2-1668523409545.png" src="./tmp-2-1668523409545-120.png">
+    </div>
+    
+    <div>
+        <p>foto 60</p>
+        <p>7.9KB</p>
+        <img class="blur" data-src="./tmp-2-1668523409545.png" src="./tmp-2-1668523409545-60.png">
+    </div>
+
+    <div>
+        <p>foto 30</p>
+        <p>2.1KB</p>
+        <img class="blur" data-src="./tmp-2-1668523409545.png" src="./tmp-2-1668523409545-30.png">
+    </div>
+    
+    <div>
+        <p>foto 16</p>
+        <p>706Bytes</p>
+        <img class="blur" data-src="./tmp-2-1668523409545.png" src="./tmp-2-1668523409545-16.png">
+    </div>
+</div>
+
+<div class="class" >
+    
+    <div>
+        <p>foto 120</p>
+        <p>29.9KB</p>
+        <img class="blur" data-src="./tmp-1-1668520509727.png" src="./tmp-1-1668520509727-120.png">
+    </div>
+    
+    <div>
+        <p>foto 60</p>
+        <p>7.9KB</p>
+        <img class="blur" data-src="./tmp-1-1668520509727.png" src="./tmp-1-1668520509727-60.png">
+    </div>
+
+    <div>
+        <p>foto 30</p>
+        <p>2.1KB</p>
+        <img class="blur" data-src="./tmp-1-1668520509727.png" src="./tmp-1-1668520509727-30.png">
+    </div>
+    
+    <div>
+        <p>foto 16</p>
+        <p>706Bytes</p>
+        <img class="blur" data-src="./tmp-1-1668520509727.png" src="./tmp-1-1668520509727-16.png">
+    </div>
+</div>
+
+<script>
+    function init() {
+        
+        var imgDefer = document.getElementsByTagName('img');
+        console.log(imgDefer);
+        for(let img of imgDefer){   
+            if(img.getAttribute('data-src')) {
+                img.setAttribute('src', img.getAttribute('data-src'));
+                
+            }
+            img.addEventListener('load',()=>{
+                    img.removeAttribute('class', 'blur');
+                })
+            }
+        }
+
+    window.onload = init;
+</script>
+
+
+    
+</body>
+</html>

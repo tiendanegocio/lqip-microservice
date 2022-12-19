@@ -1,0 +1,15 @@
+.class{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+img{
+    width: 300px;
+    
+}
+
+.blur{
+    filter: blur(3px);
+}

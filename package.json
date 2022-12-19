@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "img": "nodemon redimension.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/tiendanegocio/lqip-microservice/issues"
   },
-  "homepage": "https://github.com/tiendanegocio/lqip-microservice#readme"
+  "type": "module",
+  "homepage": "https://github.com/tiendanegocio/lqip-microservice#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "sharp": "^0.31.2"
+  }
 }
